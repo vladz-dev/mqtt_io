@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>SourceImageFileSelector.qml</file>
+        <file>ResultLocationSelector.qml</file>
+        <file>SpinBoxWithLabel.qml</file>
+        <file>JobImageMirror.qml</file>
+        <file>JobImageRgb2Gbr.qml</file>
+        <file>JobImageSubRect.qml</file>
+        <file>LogMessages.qml</file>
+    </qresource>
+</RCC>

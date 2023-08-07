@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package protocol.job;
+
+message JobMirrorImage {
+  bytes image_data = 1;
+  bool mirror_horizontal = 2;
+  bool mirror_vertical = 3;
+}
+
+message JobRgb2GbrImage {
+  bytes image_data = 1;
+}
+
+message JobSubRectImage {
+  bytes image_data = 1;
+  int32 x_start = 2;
+  int32 y_start = 3;
+  int32 x_end = 4;
+  int32 y_end = 5;
+}
+
+message Job {
+  string job_uid = 1;
+  oneof data {
+    JobMirrorImage mirror_image = 2;
+    JobRgb2GbrImage rgb2gbr_image = 3;
+    JobSubRectImage subrect_image = 4;
+  }
+}
+
+message JobResponseImage {
+    bytes image_data = 1;
+}
+
+message JobResponseError {
+    string error_message = 1;
+}
+
+message JobResponse {
+  string job_uid = 1;
+  oneof data {
+    JobResponseImage result_image = 2;
+    JobResponseError result_error = 3;
+  }
+}

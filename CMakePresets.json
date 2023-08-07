@@ -1,0 +1,68 @@
+{
+  "version": 5,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default Config",
+      "description": "Default build using Ninja generator",
+      "hidden": true,
+      "environment": {
+        "VCPKG_ROOT": "/home/developer/.vcpkg",
+        "QT_DIR": "/home/developer/Qt/6.5.2/gcc_64",
+        "Qt6_DIR": "$env{QT_DIR}/lib/cmake/Qt6"
+      },
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-${presetName}",
+      "installDir": "${sourceDir}/out-${presetName}",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_VERBOSE_MAKEFILE": "ON",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_MAKE_PROGRAM": "/usr/bin/ninja",
+        "CMAKE_PREFIX_PATH": "$env{QT_DIR}",
+        "QT_DEBUG_FIND_PACKAGE": "ON",
+        "VCPKG_MANIFEST_MODE": "ON",
+        "VCPKG_TRACE_FIND_PACKAGE": "ON"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": [
+        "default"
+      ],
+      "displayName": "Debug",
+      "hidden": false,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "inherits": [
+        "default"
+      ],
+      "displayName": "Release",
+      "hidden": false,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Build-Debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "Build-Release",
+      "configurePreset": "release"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Debug",
+            "forcedInclude": [
+                "${workspaceRoot}"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceRoot}",
+                    "/home/developer/Qt/6.5.2/Src/"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "compileCommands": "/home/developer/Prj/repo/build-debug/compile_commands.json",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
